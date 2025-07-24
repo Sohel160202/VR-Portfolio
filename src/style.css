@@ -1,8 +1,16 @@
-/* style.css */
-body {
+html, body, #root {
   margin: 0;
+  padding: 0;
+  height: 100%;
   overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+  background: #ffd000;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
 }
 
 button:hover {
