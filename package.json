@@ -1,0 +1,21 @@
+{
+  "name": "vr-portfolio",
+  "version": "1.0.0",
+  "description": "Interactive VR portfolio with modular 3D model and hotspots",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.83.7",
+    "@react-three/fiber": "^8.13.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "^0.158.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.1.0",
+    "vite": "^5.2.0"
+  }
+}
