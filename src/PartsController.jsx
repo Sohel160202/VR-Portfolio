@@ -1,41 +1,63 @@
+// File: src/PartsController.jsx
+import { useGLTF } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
-import { useRef, useEffect } from 'react';
-import { useScroll, useGLTF } from '@react-three/drei';
+import { useRef, useMemo } from 'react';
+import { useSpring, animated } from '@react-spring/three';
+import { useScroll } from '@react-three/drei';
+
+const PART_NAMES = ['Strap', 'Pipes', 'Head', 'Eye_Right', 'Eye_Left'];
+const PART_POSITIONS = {
+  Strap: [0, 0.2, 0],
+  Pipes: [0.2, -0.1, 0.1],
+  Head: [0, 0, 0],
+  Eye_Right: [0.1, 0.1, 0.2],
+  Eye_Left: [-0.1, 0.1, 0.2],
+};
 
 export default function PartsController() {
   const { scene } = useGLTF('/Cybernetic_Listener_Splitted.glb');
   const scroll = useScroll();
+  const { camera } = useThree();
 
-  const parts = {
-    1: scene.getObjectByName('Strap'),
-    2: scene.getObjectByName('Pipes'),
-    3: scene.getObjectByName('Eye_Left'),
-    4: scene.getObjectByName('Eye_Right'),
-    5: scene.getObjectByName('BACK')
-  };
+  const groupRefs = useRef({});
 
-  const positions = {
-    1: [0, 1, 0],
-    2: [1, 1, 0],
-    3: [-1, 1, 0],
-    4: [0, 1, 1],
-    5: [0, -1, 0]
-  };
+  // Memoize group initialization
+  const partGroups = useMemo(() => {
+    return PART_NAMES.map((name) => {
+      const obj = scene.getObjectByName(name);
+      const group = new THREE.Group();
+      if (obj) {
+        group.add(obj);
+        scene.add(group);
+      }
+      groupRefs.current[name] = group;
+      return group;
+    });
+  }, [scene]);
 
   useFrame(() => {
-    const offset = scroll.offset;
+    const scrollIndex = Math.floor(scroll.offset * 5); // 5 scroll pages
 
-    Object.entries(parts).forEach(([index, part]) => {
-      const page = (index - 1) / 5;
-      if (!part) return;
+    PART_NAMES.forEach((name, index) => {
+      const group = groupRefs.current[name];
+      if (!group) return;
 
-      if (offset > page && offset < page + 0.2) {
-        part.position.y += 0.1;
-        if (part.position.y > 5) {
-          part.visible = false;
-        }
-      }
+      const basePos = PART_POSITIONS[name];
+      const targetPos = scrollIndex > index
+        ? [basePos[0] * 5, basePos[1] * 5, basePos[2] + 10]
+        : basePos;
+
+      group.position.lerp(
+        new THREE.Vector3(...targetPos),
+        0.1 // smoothness
+      );
+
+      // Optional: fade opacity based on distance
+      group.visible = true;
     });
+
+    // Optional: camera rotation based on scroll
+    camera.rotation.y = scroll.offset * Math.PI * 2;
   });
 
   return null;
