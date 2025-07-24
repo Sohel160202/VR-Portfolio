@@ -1,22 +1,22 @@
+// src/App.jsx
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
-import VRModel from './VRModel';
-// import Hotspots from './Hotspots'; // 👈 Removed
+import { VRScene } from './VRScene'; // this will host your glTF and animation logic
+import './style.css';
 
-function App() {
+export default function App() {
   return (
-    <Canvas
-      camera={{ position: [0, 0, 8], fov: 40 }} // ✅ Your preferred static zoom
-      style={{ height: '100vh', width: '100vw' }}
-    >
-      <ambientLight intensity={1} />
-      <directionalLight position={[2, 2, 2]} intensity={1.2} />
-      <Environment preset="city" />
-      <VRModel />
-      {/* <Hotspots /> 👈 Removed */}
-      <OrbitControls enablePan={false} />
-    </Canvas>
+    <div className="app">
+      <Canvas camera={{ position: [0, 0, 8], fov: 40 }}>
+        <VRScene />
+      </Canvas>
+
+      <div className="section-container">
+        <section className="section">ABOUT ME</section>
+        <section className="section">WORK EXPERIENCE</section>
+        <section className="section">PUBLICATIONS</section>
+        <section className="section">IMPRESSIONS</section>
+        <section className="section">AWARDS</section>
+      </div>
+    </div>
   );
 }
-
-export default App;
