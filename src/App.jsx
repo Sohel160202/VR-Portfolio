@@ -10,7 +10,7 @@ export default function App() {
       <directionalLight position={[10, 10, 5]} intensity={1.5} />
       <VRModel />
       <Hotspots />
-      <OrbitControls enableZoom={true} />
+      <OrbitControls enableZoom={false} />
     </Canvas>
   );
 }
