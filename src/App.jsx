@@ -11,7 +11,7 @@ export default function App() {
       <BackgroundGrid /> {/* ✅ Add grid behind everything */}
 
       <ScrollControls pages={5} damping={0.1}>
-        <VRModel modelRef={modelRef} />
+        <VRModel />
       </ScrollControls>
 
       <OrbitControls enableZoom={false} />
