@@ -29,7 +29,7 @@ export default function Overlay() {
     }
 
     // Page 2: Experience
-    const isExpVisible = offset >= 0.2 && offset < 0.4;
+    const isExpVisible = offset >= 0.18 && offset < 0.42;
     if (leftExpRef.current) {
       leftExpRef.current.style.opacity = isExpVisible ? 1 : 0;
       leftExpRef.current.style.transform = isExpVisible
