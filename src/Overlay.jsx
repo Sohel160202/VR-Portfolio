@@ -44,7 +44,9 @@ export default function Overlay() {
       >
         <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>I AM SOHEL</h1>
         <p style={{ lineHeight: '1.7', fontSize: '1rem', fontWeight: 300 }}>
-          I’m Sheikh Sohel Moon, a Game and VR Developer specializing in immersive experiences that push the boundaries of storytelling and technology.
+          I’m Sheikh Sohel Moon, a Game and VR Developer specializing in immersive experiences that push the boundaries of storytelling and technology. With expertise in Unreal Engine, C++, Python, VR development and Machine Learning.
+        <br /><br />
+          I have worked as a Lead Game & VR Developer on projects that gained international recognition, including a VR experience featured on Netflix’s The Future Of and showcased at the Sundance Film Festival. While these accolades were awarded to the projects I contributed to as part of a team, my role was pivotal in leading the technical development, game mechanics, and interactive design.
         </p>
       </div>
 
@@ -63,9 +65,9 @@ export default function Overlay() {
         }}
       >
         <p style={{ lineHeight: '1.7', fontSize: '1rem', fontWeight: 300 }}>
-          I’ve led development on internationally recognized projects, including Netflix’s <i>The Future Of</i> and showcases at Sundance Film Festival.
-          <br /><br />
           Author of <b>Game Development Concepts in C++</b> (Apress/Springer, 2025) and mentor for aspiring creators. Passionate about AI, physics mechanics, and multiplayer VR.
+          <br /><br />
+          Passionate about AI, physics-based mechanics, multiplayer systems, and VR interactions, I am always exploring new frontiers in game development.
         </p>
       </div>
     </Html>
