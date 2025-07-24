@@ -1,4 +1,5 @@
-import { Html, useThree } from '@react-three/drei';
+import { Html } from '@react-three/drei';
+import { useThree } from '@react-three/fiber';
 import { hotspotData } from './data/hotspots';
 
 export default function Hotspots() {
