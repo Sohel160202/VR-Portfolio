@@ -19,7 +19,7 @@ export default function VRModel(props) {
     <primitive
       ref={modelRef}
       object={scene}
-      scale={2.5} // 🔥 make the model larger
+      scale={[2, 2, 2]} // 🔥 make the model larger
       position={[0, -0.5, 0]} // 🔧 adjust vertically
       {...props}
     />
