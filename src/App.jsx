@@ -1,6 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, ScrollControls } from '@react-three/drei';
 import VRModel from './VRModel';
+import Overlay from './Overlay';
 
 export default function App() {
 
@@ -12,6 +13,7 @@ export default function App() {
 
       <ScrollControls pages={5} damping={0.1}>
         <VRModel />
+        <Overlay />
       </ScrollControls>
 
       <OrbitControls enableZoom={false} />
