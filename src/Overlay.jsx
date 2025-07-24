@@ -35,7 +35,7 @@ export default function Overlay() {
           position: 'absolute',
           top: '20%',
           left: '5%',
-          width: '38%',
+          width: '30%',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
           color: 'white',
           fontFamily: 'Orbitron, sans-serif',
