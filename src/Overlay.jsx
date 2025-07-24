@@ -47,7 +47,7 @@ export default function Overlay() {
           I’m Sheikh Sohel Moon, a Game and VR Developer specializing in immersive experiences that push the boundaries of storytelling and technology. With expertise in Unreal Engine, C++, Python, VR development and Machine Learning.
         <br /><br />
           I’ve led development on internationally recognized projects, including Netflix’s <i>The Future Of</i> and showcases at Sundance Film Festival.
-      </div>
+      </p>
 
       {/* RIGHT block (lowered, margin-tuned) */}
       <div
