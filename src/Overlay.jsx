@@ -53,9 +53,9 @@ export default function Overlay() {
         ref={rightRef}
         style={{
           position: 'absolute',
-          top: '55%',
+          top: '70%',
           right: '5%',
-          width: '38%',
+          width: '30%',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
           color: 'white',
           fontFamily: 'Orbitron, sans-serif',
