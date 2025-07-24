@@ -1,25 +1,11 @@
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import * as THREE from 'three';
 
-export function VRScene() {
+export function VRScene({ section }) {
   const group = useRef();
   const { nodes } = useGLTF('/Cybernetic_Listener_Splitted.glb');
-  const [section, setSection] = useState(0);
-
-  // Track scroll and map to section index
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const vh = window.innerHeight;
-      const index = Math.round(scrollY / vh);
-      setSection(index);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const breakPositions = {
     'input':      new THREE.Vector3(-3, 2, -2),
@@ -51,12 +37,11 @@ export function VRScene() {
     <group ref={group} scale={1.5} position={[0, -1.2, 0]}>
       {Object.entries(nodes).map(([name, node]) => {
         const clone = node.clone();
-        clone.userData.partName = name; // 💡 Attach name for later use
+        clone.userData.partName = name;
         return <primitive key={name} object={clone} />;
       })}
     </group>
   );
 }
 
-// Preload for performance
 useGLTF.preload('/Cybernetic_Listener_Splitted.glb');
