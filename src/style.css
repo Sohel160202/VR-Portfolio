@@ -17,3 +17,38 @@ button:hover {
   background-color: #ffbf00;
   cursor: pointer;
 }
+
+/* VR Background and Scroll Sections */
+.app {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+.section-container {
+  position: relative;
+  z-index: 2;
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  font-size: 3rem;
+  background: transparent;
+  color: white;
+  text-shadow: 0 0 10px black;
+}
