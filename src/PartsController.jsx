@@ -1,64 +1,48 @@
-// File: src/VRModel.jsx
-import { useGLTF } from '@react-three/drei';
-import { useRef, useState, useEffect } from 'react';
-import { useFrame } from '@react-three/fiber';
 import { useScroll } from '@react-three/drei';
-import * as THREE from 'three';
+import { useFrame } from '@react-three/fiber';
+import { useEffect, useState } from 'react';
 
-export default function VRModel(props) {
-  const { scene } = useGLTF('/Cybernetic_Listener_Splitted.glb');
-  const modelRef = useRef();
+export default function PartsController({ modelRef }) {
   const scroll = useScroll();
-
-  const partNames = ['Part_1', 'Part_2', 'Part_3', 'Part_4', 'Part_5'];
+  const partNames = ['BACK', 'Eye_Left', 'Eye_Right', 'Pipes', 'Strap'];
   const [removedParts, setRemovedParts] = useState(new Set());
 
   useEffect(() => {
-    // Reset all parts to visible and original position
+    if (!modelRef.current) return;
     partNames.forEach((name) => {
-      const part = scene.getObjectByName(name);
+      const part = modelRef.current.getObjectByName(name);
       if (part) {
         part.visible = true;
         part.position.set(0, 0, 0);
       }
     });
-  }, [scene]);
+    setRemovedParts(new Set());
+  }, [modelRef]);
 
   useFrame(() => {
     if (!modelRef.current) return;
-
     modelRef.current.rotation.y = scroll.offset * Math.PI * 2;
 
     const step = 1 / partNames.length;
     const currentIndex = Math.floor(scroll.offset / step);
 
     partNames.forEach((name, index) => {
-      const part = scene.getObjectByName(name);
+      const part = modelRef.current.getObjectByName(name);
       if (!part) return;
 
       if (index < currentIndex && !removedParts.has(name)) {
-        // Fly part away
-        new THREE.Vector3(
-          (Math.random() - 0.5) * 10,
-          (Math.random() - 0.5) * 10,
-          -10
-        ).toArray((target) => {
-          part.position.set(...target);
+        part.position.set(
+          (Math.random() - 0.5) * 20,
+          (Math.random() - 0.5) * 20,
+          -15
+        );
+        setTimeout(() => {
           part.visible = false;
-        });
-
+        }, 600);
         setRemovedParts((prev) => new Set(prev).add(name));
       }
     });
   });
 
-  return (
-    <primitive
-      ref={modelRef}
-      object={scene}
-      scale={[2, 2, 2]}
-      position={[0, -0.5, 0]}
-      {...props}
-    />
-  );
+  return null;
 }
