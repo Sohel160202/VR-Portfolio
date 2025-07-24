@@ -3,7 +3,6 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, ScrollControls } from '@react-three/drei';
 import { useRef } from 'react';
 import VRModel from './VRModel';
-import PartsController from './PartsController';
 
 export default function App() {
   const modelRef = useRef();
@@ -16,7 +15,6 @@ export default function App() {
       <ScrollControls pages={5} damping={0.1}>
         <group ref={modelRef}>
           <VRModel modelRef={modelRef} />
-          <PartsController modelRef={modelRef} />
         </group>
       </ScrollControls>
 
