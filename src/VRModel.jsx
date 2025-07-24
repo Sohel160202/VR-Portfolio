@@ -6,7 +6,7 @@ export default function VRModel(props) {
   return (
     <primitive
       object={scene}
-      scale={3} // 🔥 Try 2 or 3 if needed
+      scale={1.5} // 🔥 Try 2 or 3 if needed
       position={[0, -1.2, 0]} // 🔧 adjust to recenter it visually
       {...props}
     />
