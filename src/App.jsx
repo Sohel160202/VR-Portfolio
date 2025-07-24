@@ -6,7 +6,7 @@ import Hotspots from './Hotspots';
 function App() {
   return (
     <Canvas
-      camera={{ position: [0, 0, 3], fov: 40 }}
+      camera={{ position: [0, 0, 5], fov: 40 }} // ⬅️ Changed from [0, 0, 3] to [0, 0, 5]
       style={{ height: '100vh', width: '100vw' }}
     >
       <ambientLight intensity={1} />
