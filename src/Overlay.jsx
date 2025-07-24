@@ -10,11 +10,13 @@ export default function Overlay() {
   const leftExpRef = useRef();
   const rightExpRef = useRef();
 
-  useFrame(() => {
-    const offset = scroll.offset;
+  const TOTAL_PAGES = 5;
 
-    // Page 1: Introduction
-    const isIntroVisible = offset < 0.2;
+  useFrame(() => {
+    const currentPage = Math.floor(scroll.offset * TOTAL_PAGES);
+
+    // Page 0: Intro
+    const isIntroVisible = currentPage === 0;
     if (leftRef.current) {
       leftRef.current.style.opacity = isIntroVisible ? 1 : 0;
       leftRef.current.style.transform = isIntroVisible
@@ -28,8 +30,8 @@ export default function Overlay() {
         : 'translateY(-50px)';
     }
 
-    // Page 2: Experience
-    const isExpVisible = offset >= 0.18 && offset < 0.42;
+    // Page 1: Experience
+    const isExpVisible = currentPage === 1;
     if (leftExpRef.current) {
       leftExpRef.current.style.opacity = isExpVisible ? 1 : 0;
       leftExpRef.current.style.transform = isExpVisible
@@ -102,7 +104,7 @@ export default function Overlay() {
           fontFamily: 'Orbitron, sans-serif',
           opacity: 0,
           zIndex: 10,
-pointerEvents: 'none',
+          pointerEvents: 'none',
         }}
       >
         <h2 style={{ fontSize: '1.2rem' }}>Lead Game & VR Developer</h2>
@@ -139,7 +141,7 @@ pointerEvents: 'none',
           fontFamily: 'Orbitron, sans-serif',
           opacity: 0,
           zIndex: 10,
-pointerEvents: 'none',
+          pointerEvents: 'none',
         }}
       >
         <h2 style={{ fontSize: '1.2rem' }}>Senior Game Developer</h2>
