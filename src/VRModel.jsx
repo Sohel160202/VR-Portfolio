@@ -1,7 +1,7 @@
 // File: src/VRModel.jsx
 import { useGLTF, useScroll } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 
 export default function VRModel() {
@@ -11,9 +11,9 @@ export default function VRModel() {
 
   const partNames = ['BACK', 'Eye_Left', 'Eye_Right', 'Pipes', 'Strap'];
   const partRefs = useRef({});
+  const [hiddenTimers, setHiddenTimers] = useState({});
 
   useEffect(() => {
-    // Reset all part visibility & positions on load
     partNames.forEach((name) => {
       const part = scene.getObjectByName(name);
       if (part) {
@@ -26,7 +26,6 @@ export default function VRModel() {
 
   useFrame(() => {
     if (!modelRef.current) return;
-
     modelRef.current.rotation.y = scroll.offset * Math.PI * 2;
 
     const step = 1 / partNames.length;
@@ -37,17 +36,34 @@ export default function VRModel() {
       if (!part) return;
 
       if (index < currentIndex) {
-        // Animate flying away
-        part.position.lerp(new THREE.Vector3((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, -10), 0.05);
+        // Move part outward slowly
+        part.position.lerp(
+          new THREE.Vector3((index - 2) * 5, (Math.random() - 0.5) * 8, -8),
+          0.05
+        );
 
-        // Optional: hide once far enough
-        if (part.position.length() > 15) {
-          part.visible = false;
+        // Set timer to hide after 2 seconds
+        if (!hiddenTimers[name]) {
+          const timer = setTimeout(() => {
+            if (part) part.visible = false;
+          }, 2000);
+
+          setHiddenTimers((prev) => ({ ...prev, [name]: timer }));
         }
       } else {
-        // Reset if user scrolls back
+        // Reset part if scrolling back up
         part.visible = true;
         part.position.lerp(new THREE.Vector3(0, 0, 0), 0.1);
+
+        // Clear timer if exists
+        if (hiddenTimers[name]) {
+          clearTimeout(hiddenTimers[name]);
+          setHiddenTimers((prev) => {
+            const copy = { ...prev };
+            delete copy[name];
+            return copy;
+          });
+        }
       }
     });
   });
