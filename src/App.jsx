@@ -1,3 +1,6 @@
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, ScrollControls } from '@react-three/drei';
+import VRModel from './VRModel';
 import BackgroundGrid from './BackgroundGrid';
 
 export default function App() {
