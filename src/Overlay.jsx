@@ -58,6 +58,8 @@ export default function Overlay() {
           color: 'white',
           fontFamily: 'Orbitron, sans-serif',
           opacity: 0,
+          zIndex: 10,
+pointerEvents: 'none',
         }}
       >
         <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>I AM SOHEL</h1>
@@ -80,6 +82,8 @@ export default function Overlay() {
           color: 'white',
           fontFamily: 'Orbitron, sans-serif',
           opacity: 0,
+          zIndex: 10,
+pointerEvents: 'none',
         }}
       >
         <p style={{ lineHeight: '1.7', fontSize: '1rem', fontWeight: 300 }}>
