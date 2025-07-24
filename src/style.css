@@ -4,10 +4,10 @@ html, body, #root {
   padding: 0;
   height: 100%;
   overflow: hidden;
-  background: linear-gradient(to bottom, #0e0e0e, #1a1a1a); /* Sleek gradient */
-  color: #f0f0f0;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff; /* ← changed back to white */
 }
+
 
 /* Optional button styling if needed later */
 button {
