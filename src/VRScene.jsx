@@ -1,11 +1,23 @@
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import * as THREE from 'three';
 
-export function VRScene({ section }) {
+export function VRScene() {
   const group = useRef();
   const { nodes } = useGLTF('/Cybernetic_Listener_Splitted.glb');
+  const [section, setSection] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const vh = window.innerHeight;
+      const index = Math.round(scrollY / vh);
+      setSection(index);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const breakPositions = {
     'input':      new THREE.Vector3(-3, 2, -2),
@@ -16,6 +28,8 @@ export function VRScene({ section }) {
     'input.005':  new THREE.Vector3(-2, 2, -5),
   };
 
+  const meshEntries = Object.entries(nodes).filter(([_, node]) => node.isMesh);
+
   useFrame(() => {
     if (!group.current) return;
 
@@ -24,9 +38,10 @@ export function VRScene({ section }) {
       const target = breakPositions[name] || new THREE.Vector3(0, 5, -5);
 
       if (idx < section) {
-        child.position.lerp(target, 0.05);
-        child.rotation.y += 0.02;
+        // Break and move away
+        child.visible = false;
       } else {
+        child.visible = true;
         child.position.lerp(new THREE.Vector3(0, 0, 0), 0.05);
         child.rotation.y *= 0.9;
       }
@@ -35,7 +50,7 @@ export function VRScene({ section }) {
 
   return (
     <group ref={group} scale={1.5} position={[0, -1.2, 0]}>
-      {Object.entries(nodes).map(([name, node]) => {
+      {meshEntries.map(([name, node]) => {
         const clone = node.clone();
         clone.userData.partName = name;
         return <primitive key={name} object={clone} />;
