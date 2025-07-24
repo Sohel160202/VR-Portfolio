@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment } from '@react-three/drei';
-import VRModel from './VRModel';
+import { VRScene } from './VRScene';
 import './style.css';
 
 export default function App() {
