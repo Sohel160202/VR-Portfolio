@@ -46,7 +46,7 @@ export default function VRModel() {
         if (!hiddenTimers[name]) {
           const timer = setTimeout(() => {
             if (part) part.visible = false;
-          }, 1000);
+          }, 500);
 
           setHiddenTimers((prev) => ({ ...prev, [name]: timer }));
         }
