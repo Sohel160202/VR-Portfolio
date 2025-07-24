@@ -1,7 +1,6 @@
 import BackgroundGrid from './BackgroundGrid';
 
 export default function App() {
-  const modelRef = useRef();
 
   return (
     <Canvas camera={{ position: [0, 0, 8], fov: 40 }} style={{ height: '100vh', width: '100vw' }}>
