@@ -1,70 +1,63 @@
 // File: src/VRModel.jsx
-import { useGLTF } from '@react-three/drei';
-import { useRef, useEffect, useState } from 'react';
+import { useGLTF, useScroll } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useScroll } from '@react-three/drei';
+import { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 
-export default function VRModel({ modelRef }) {
+export default function VRModel() {
   const { scene } = useGLTF('/Cybernetic_Listener_Splitted.glb');
-  const localRef = useRef();
+  const modelRef = useRef();
   const scroll = useScroll();
 
   const partNames = ['BACK', 'Eye_Left', 'Eye_Right', 'Pipes', 'Strap'];
-  const [animatedParts, setAnimatedParts] = useState({});
+  const partRefs = useRef({});
 
   useEffect(() => {
-    if (modelRef?.current && localRef.current) {
-      modelRef.current.add(localRef.current);
-    }
-
+    // Reset all part visibility & positions on load
     partNames.forEach((name) => {
       const part = scene.getObjectByName(name);
       if (part) {
         part.visible = true;
         part.position.set(0, 0, 0);
+        partRefs.current[name] = part;
       }
     });
-
-    localRef.current = scene;
-  }, [scene, modelRef]);
+  }, [scene]);
 
   useFrame(() => {
-    if (!localRef.current) return;
+    if (!modelRef.current) return;
 
-    localRef.current.rotation.y = scroll.offset * Math.PI * 2;
+    modelRef.current.rotation.y = scroll.offset * Math.PI * 2;
 
     const step = 1 / partNames.length;
     const currentIndex = Math.floor(scroll.offset / step);
 
     partNames.forEach((name, index) => {
-      const part = scene.getObjectByName(name);
+      const part = partRefs.current[name];
       if (!part) return;
 
-      if (index < currentIndex && !animatedParts[name]) {
-        const direction = new THREE.Vector3(
-          (Math.random() - 0.5) * 2,
-          (Math.random() - 0.5) * 2,
-          (Math.random() - 0.5) * 2
-        ).normalize();
+      if (index < currentIndex) {
+        // Animate flying away
+        part.position.lerp(new THREE.Vector3((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, -10), 0.05);
 
-        animatedParts[name] = { direction, speed: 0.15, distance: 0 };
-        setAnimatedParts({ ...animatedParts });
-      }
-
-      if (animatedParts[name]) {
-        const partAnim = animatedParts[name];
-        part.position.addScaledVector(partAnim.direction, partAnim.speed);
-        partAnim.distance += partAnim.speed;
-
-        if (partAnim.distance > 10) {
+        // Optional: hide once far enough
+        if (part.position.length() > 15) {
           part.visible = false;
-          delete animatedParts[name];
-          setAnimatedParts({ ...animatedParts });
         }
+      } else {
+        // Reset if user scrolls back
+        part.visible = true;
+        part.position.lerp(new THREE.Vector3(0, 0, 0), 0.1);
       }
     });
   });
 
-  return null;
+  return (
+    <primitive
+      ref={modelRef}
+      object={scene}
+      scale={[2, 2, 2]}
+      position={[0, -0.5, 0]}
+    />
+  );
 }
