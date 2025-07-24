@@ -12,7 +12,7 @@ export default function Overlay() {
   const rightExpRef = useRef();
 
   useFrame(() => {
-    const currentPage = Math.round(scroll.offset * scroll.pages); // Clean page detection
+    const currentPage = Math.floor(scroll.offset * scroll.pages); // Clean page detection
 
     const showIntro = currentPage === 0;
     const showExp = currentPage === 1;
