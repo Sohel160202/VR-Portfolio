@@ -1,3 +1,4 @@
+// File: src/App.jsx
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, ScrollControls } from '@react-three/drei';
 import { useRef } from 'react';
@@ -13,8 +14,10 @@ export default function App() {
       <directionalLight position={[2, 2, 2]} intensity={1.2} />
 
       <ScrollControls pages={5} damping={0.1}>
-        <VRModel modelRef={modelRef} />
-        <PartsController modelRef={modelRef} />
+        <group ref={modelRef}>
+          <VRModel modelRef={modelRef} />
+          <PartsController modelRef={modelRef} />
+        </group>
       </ScrollControls>
 
       <OrbitControls enableZoom={false} />
