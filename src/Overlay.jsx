@@ -28,13 +28,14 @@ export default function Overlay() {
 
   return (
     <Html fullscreen>
+      {/* LEFT block */}
       <div
         ref={leftRef}
         style={{
           position: 'absolute',
           top: '20%',
           left: '5%',
-          width: '35%',
+          width: '38%',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
           color: 'white',
           fontFamily: 'Orbitron, sans-serif',
@@ -47,13 +48,14 @@ export default function Overlay() {
         </p>
       </div>
 
+      {/* RIGHT block (lowered, margin-tuned) */}
       <div
         ref={rightRef}
         style={{
           position: 'absolute',
-          top: '45%',
+          top: '55%',
           right: '5%',
-          width: '35%',
+          width: '38%',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
           color: 'white',
           fontFamily: 'Orbitron, sans-serif',
