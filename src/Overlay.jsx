@@ -10,7 +10,7 @@ export default function Overlay() {
   const leftExpRef = useRef();
   const rightExpRef = useRef();
 
-  const TOTAL_PAGES = 5;
+  const TOTAL_PAGES = 6;
 
   useFrame(() => {
     const currentPage = Math.floor(scroll.offset * TOTAL_PAGES);
