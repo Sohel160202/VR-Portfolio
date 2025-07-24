@@ -1,22 +1,16 @@
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
+import { OrbitControls, Html } from '@react-three/drei';
 import VRModel from './VRModel';
-// import Hotspots from './Hotspots'; // 👈 Removed
+import Hotspots from './Hotspots';
 
-function App() {
+export default function App() {
   return (
-    <Canvas
-      camera={{ position: [0, 0, 8], fov: 40 }} // ✅ Your preferred static zoom
-      style={{ height: '100vh', width: '100vw' }}
-    >
-      <ambientLight intensity={1} />
-      <directionalLight position={[2, 2, 2]} intensity={1.2} />
-      <Environment preset="city" />
+    <Canvas camera={{ position: [0, 1.5, 5], fov: 50 }}>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1.5} />
       <VRModel />
-      {/* <Hotspots /> 👈 Removed */}
-      <OrbitControls enablePan={false} />
+      <Hotspots />
+      <OrbitControls enableZoom={true} />
     </Canvas>
   );
 }
-
-export default App;
