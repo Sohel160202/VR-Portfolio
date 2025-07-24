@@ -2,7 +2,6 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, ScrollControls } from '@react-three/drei';
 import VRModel from './VRModel';
-import InfoPanels from './InfoPanels';
 
 export default function App() {
   return (
