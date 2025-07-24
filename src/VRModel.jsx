@@ -1,3 +1,4 @@
+// VRModel.jsx
 import { useGLTF } from '@react-three/drei';
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
@@ -10,7 +11,7 @@ export default function VRModel(props) {
 
   useFrame(() => {
     if (modelRef.current) {
-      modelRef.current.rotation.y = scroll.offset * Math.PI * 2; // full 360° rotation based on scroll
+      modelRef.current.rotation.y = scroll.offset * Math.PI * 2;
     }
   });
 
@@ -18,8 +19,8 @@ export default function VRModel(props) {
     <primitive
       ref={modelRef}
       object={scene}
-      scale={1.5}
-      position={[0, -1.2, 0]}
+      scale={2.5} // 🔥 make the model larger
+      position={[0, -0.5, 0]} // 🔧 adjust vertically
       {...props}
     />
   );
