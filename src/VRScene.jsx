@@ -21,17 +21,26 @@ export function VRScene() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Animate parts flying out based on scroll section
+  const breakPositions = {
+    'input':      new THREE.Vector3(-3, 2, -2),
+    'input.001':  new THREE.Vector3(3, 1.5, -2),
+    'input.002':  new THREE.Vector3(-2, -2, -3),
+    'input.003':  new THREE.Vector3(2, -1.5, -2),
+    'input.004':  new THREE.Vector3(0, 3, -4),
+    'input.005':  new THREE.Vector3(-2, 2, -5),
+  };
+
   useFrame(() => {
     if (!group.current) return;
 
     group.current.children.forEach((child, idx) => {
+      const name = child.userData.partName;
+      const target = breakPositions[name] || new THREE.Vector3(0, 5, -5);
+
       if (idx < section) {
-        // Move part outward
-        child.position.lerp(new THREE.Vector3((idx + 1) * 2, idx * 1.5, -idx * 2), 0.05);
-        child.rotation.y += 0.01;
+        child.position.lerp(target, 0.05);
+        child.rotation.y += 0.02;
       } else {
-        // Reset to origin
         child.position.lerp(new THREE.Vector3(0, 0, 0), 0.05);
         child.rotation.y *= 0.9;
       }
@@ -40,9 +49,14 @@ export function VRScene() {
 
   return (
     <group ref={group} scale={1.5} position={[0, -1.2, 0]}>
-      {Object.values(nodes).map((node, idx) => (
-        <primitive key={idx} object={node} />
-      ))}
+      {Object.entries(nodes).map(([name, node]) => {
+        const clone = node.clone();
+        clone.userData.partName = name; // 💡 Attach name for later use
+        return <primitive key={name} object={clone} />;
+      })}
     </group>
   );
 }
+
+// Preload for performance
+useGLTF.preload('/Cybernetic_Listener_Splitted.glb');
