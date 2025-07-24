@@ -7,7 +7,7 @@ export default function VRModel(props) {
   const ref = useRef();
 
   useFrame(() => {
-    ref.current.rotation.y += 0.003;
+    //ref.current.rotation.y += 0.003;
   });
 
   return (
