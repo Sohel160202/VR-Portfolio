@@ -5,42 +5,42 @@ import { useRef } from 'react';
 
 export default function Overlay() {
   const scroll = useScroll();
+
   const leftRef = useRef();
   const rightRef = useRef();
   const leftExpRef = useRef();
   const rightExpRef = useRef();
 
-  const TOTAL_PAGES = 4;
-
   useFrame(() => {
-    const currentPage = Math.floor(scroll.offset * TOTAL_PAGES);
+    const currentPage = Math.round(scroll.offset * scroll.pages);
 
-    // Page 0: Intro
-    const isIntroVisible = currentPage === 0;
+    const showIntro = currentPage === 0;
+    const showExperience = currentPage === 1;
+
+    // Page 1: Intro
     if (leftRef.current) {
-      leftRef.current.style.opacity = isIntroVisible ? 1 : 0;
-      leftRef.current.style.transform = isIntroVisible
+      leftRef.current.style.opacity = showIntro ? 1 : 0;
+      leftRef.current.style.transform = showIntro
         ? 'translateY(0px)'
         : 'translateY(-50px)';
     }
     if (rightRef.current) {
-      rightRef.current.style.opacity = isIntroVisible ? 1 : 0;
-      rightRef.current.style.transform = isIntroVisible
+      rightRef.current.style.opacity = showIntro ? 1 : 0;
+      rightRef.current.style.transform = showIntro
         ? 'translateY(0px)'
         : 'translateY(-50px)';
     }
 
-    // Page 1: Experience
-    const isExpVisible = currentPage === 1;
+    // Page 2: Experience
     if (leftExpRef.current) {
-      leftExpRef.current.style.opacity = isExpVisible ? 1 : 0;
-      leftExpRef.current.style.transform = isExpVisible
+      leftExpRef.current.style.opacity = showExperience ? 1 : 0;
+      leftExpRef.current.style.transform = showExperience
         ? 'translateY(0px)'
         : 'translateY(50px)';
     }
     if (rightExpRef.current) {
-      rightExpRef.current.style.opacity = isExpVisible ? 1 : 0;
-      rightExpRef.current.style.transform = isExpVisible
+      rightExpRef.current.style.opacity = showExperience ? 1 : 0;
+      rightExpRef.current.style.transform = showExperience
         ? 'translateY(0px)'
         : 'translateY(50px)';
     }
