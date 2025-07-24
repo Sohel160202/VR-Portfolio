@@ -4,17 +4,20 @@ html, body, #root {
   padding: 0;
   height: 100%;
   overflow: hidden;
-  background: linear-gradient(to bottom, #0e0e0e, #1a1a1a); /* Dark background */
-  color: #f0f0f0;       /* Light text for contrast */
+  background: linear-gradient(to bottom, #0e0e0e, #1a1a1a); /* Sleek gradient */
+  color: #f0f0f0;
   font-family: 'Orbitron', sans-serif;
 }
 
-
+/* Optional button styling if needed later */
 button {
   background: #ffd000;
+  color: #000;
   border: none;
-  padding: 5px 10px;
+  padding: 8px 14px;
   border-radius: 6px;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
 }
 
 button:hover {
