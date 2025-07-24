@@ -1,32 +1,23 @@
+/* Base Setup */
 html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
 }
 
-button {
-  background: #ffd000;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 6px;
-}
-
-button:hover {
-  background-color: #ffbf00;
-  cursor: pointer;
-}
-
-/* VR Background and Scroll Sections */
+/* Scrollable outer container */
 .app {
   position: relative;
   height: 100vh;
   width: 100vw;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
+  scroll-behavior: smooth; /* 💡 Smooth scrolling */
 }
 
+/* Fixed Canvas behind everything */
 .canvas-container {
   position: fixed;
   top: 0;
@@ -34,21 +25,49 @@ button:hover {
   height: 100vh;
   width: 100vw;
   z-index: 1;
+  pointer-events: none; /* Ensure scroll and buttons work */
 }
 
+/* Foreground sections */
 .section-container {
   position: relative;
   z-index: 2;
 }
 
+/* Each section is full screen and centered */
 .section {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   scroll-snap-align: start;
+  padding: 2rem;
+  box-sizing: border-box;
   font-size: 3rem;
   background: transparent;
   color: white;
   text-shadow: 0 0 10px black;
+}
+
+/* Optional: improve readability over bright models */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Button Styling (if needed) */
+button {
+  background: #ffd000;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #ffbf00;
+  cursor: pointer;
 }
