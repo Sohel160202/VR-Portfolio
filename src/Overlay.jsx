@@ -21,9 +21,9 @@ export default function Overlay() {
 
   useEffect(() => {
     const h = window.innerHeight;
-    setPage2Top(`${h * 1 + 500}px`);
+    setPage2Top(`${h * 1 + 700}px`);
     setPage3Top(`${h * 2 + 800}px`);
-    setPage4Top(`${h * 3 + 500}px`);
+    setPage4Top(`${h * 3 + 800}px`);
     setPage5Top(`${h * 4 + 800}px`);
   }, []);
 
@@ -136,6 +136,23 @@ const contactVisible = scroll.range(4 / 5, 1 / 5);
         </p>
       </div>
 
+      <div
+        style={{
+          position: 'absolute',
+          top: page2Top,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          color: 'white',
+          fontFamily: 'Orbitron, sans-serif',
+          fontSize: '3rem',
+          fontWeight: 'bold',
+          pointerEvents: 'none',
+          zIndex: 20,
+        }}
+      >
+        WORK EXPERIENCE<span style={{ color: '#E63946' }}>.</span>
+      </div>
+
       {/* Page 2: EXPERIENCE LEFT */}
       <div
         ref={leftExpRef}
@@ -207,6 +224,23 @@ const contactVisible = scroll.range(4 / 5, 1 / 5);
           <li>Built game prototypes and asset services</li>
           <li>Led game design and dev pipeline</li>
         </ul>
+      </div>
+
+            <div
+        style={{
+          position: 'absolute',
+          top: page3Top,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          color: 'white',
+          fontFamily: 'Orbitron, sans-serif',
+          fontSize: '3rem',
+          fontWeight: 'bold',
+          pointerEvents: 'none',
+          zIndex: 20,
+        }}
+      >
+        PUBLICATIONS<span style={{ color: '#E63946' }}>.</span>
       </div>
 
       {/* Page 3: PUBLICATIONS */}
