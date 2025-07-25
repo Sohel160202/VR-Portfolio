@@ -150,7 +150,7 @@ const contactVisible = scroll.range(4 / 5, 1 / 5);
           zIndex: 20,
         }}
       >
-        WORK EXPERIENCE<span style={{ color: '#E63946' }}>.</span>
+        EXPERIENCE<span style={{ color: '#E63946' }}>.</span>
       </div>
 
       {/* Page 2: EXPERIENCE LEFT */}
