@@ -27,12 +27,13 @@ export default function Overlay() {
     setPage5Top(`${h * 4 + 500}px`);
   }, []);
 
+  const offset = scroll.offset;
   useFrame(() => {
-    const introVisible = scroll.offset <= 1 / 5;
-    const expVisible = scroll.range(1 / 5, 1 / 5);
-    const pubVisible = scroll.range(2 / 5, 1 / 5);
-    const impressionsVisible = scroll.range(3 / 5, 1 / 5);
-    const contactVisible = scroll.range(4 / 5, 1 / 5);
+const introVisible = offset >= 0 && offset < 0.2;
+const expVisible = offset >= 0.2 && offset < 0.4;
+const pubVisible = offset >= 0.4 && offset < 0.6;
+const impressionsVisible = offset >= 0.6 && offset < 0.8;
+const contactVisible = offset >= 0.8;
 
     if (leftRef.current) {
       leftRef.current.style.opacity = introVisible ? 1 : 0;
