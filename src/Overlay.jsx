@@ -197,7 +197,7 @@ const contactVisible = scroll.range(4 / 5, 1 / 5);
         style={{
           position: 'absolute',
           top: page2Top,
-          right: '15%',
+          right: '0%',
           width: '30%',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
           color: 'white',
