@@ -24,7 +24,7 @@ export default function Overlay() {
   }, []);
 
   useFrame(() => {
-    const introVisible = scroll.range(0, 1 / 5); // page 0 to 1
+    const introVisible = scroll.offset <= 1 / 5; // page 0 to 1
     const expVisible = scroll.range(1 / 5, 1 / 5); // page 1 to 2
     const pubVisible = scroll.range(2 / 5, 1 / 5); // page 2 to 3
     const impressionsVisible = scroll.range(3 / 5, 1 / 5); // page 3 to 4
