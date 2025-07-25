@@ -328,16 +328,16 @@ const contactVisible = scroll.range(4 / 5, 1 / 5);
     left: '0',
     width: '100%',
     display: 'flex',
-    justifyContent: 'flex-end', // align to right
+    justifyContent: 'flex-start', // align to the left instead of end
     alignItems: 'center',
     color: 'white',
     fontFamily: 'Orbitron, sans-serif',
     opacity: 0,
     transition: 'opacity 0.8s ease, transform 0.8s ease',
-    paddingRight: '20%', // spacing from the right edge
+    paddingLeft: '60%', // shifts the content right but still leaves room from edge
   }}
 >
-  <div style={{ textAlign: 'right' }}>
+  <div style={{ textAlign: 'left', maxWidth: '400px' }}>
     <h1>
       NEED MORE INFORMATION<span style={{ color: '#e71334' }}>?</span>
     </h1>
@@ -353,6 +353,7 @@ const contactVisible = scroll.range(4 / 5, 1 / 5);
     </p>
   </div>
 </div>
+
     </Html>
   );
 }
