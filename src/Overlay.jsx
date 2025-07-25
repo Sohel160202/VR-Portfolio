@@ -91,7 +91,7 @@ const contactVisible = offset >= 0.8;
           zIndex: 20,
         }}
       >
-        I AM SOHEL
+        I AM SOHEL<span style={{ color: '#E63946' }}>.</span>
       </div>
       
       {/* Page 1: INTRO LEFT */}
