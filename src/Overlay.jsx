@@ -244,7 +244,7 @@ export default function Overlay() {
           Game Development Concepts in C++
         </a></h3>
         <p><i>Elevate Your Skills with Unreal Engine</i></p>
-        <p>Publisher: Apress</i></p>
+        <p><i>Publisher: Apress</i></p>
         <p style={{ fontSize: '0.9rem', lineHeight: '1.6', marginTop: '1rem' }}>
           This guide focuses on programming game mechanics in C++ with Unreal Engine, featuring over 100 templates and code snippets.
           It covers collision detection, AI behaviors, advanced physics, networking, and performance optimization, aimed at intermediate developers.
