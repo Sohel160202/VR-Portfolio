@@ -93,7 +93,7 @@ export default function Overlay() {
         ref={leftExpRef}
         style={{
           position: 'absolute',
-          top: '10%',
+          top: '${window.innerHeight * 1 + 100}px',
           left: '5%',
           width: '30%',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
@@ -130,7 +130,7 @@ export default function Overlay() {
         ref={rightExpRef}
         style={{
           position: 'absolute',
-          top: '10%',
+          top: '${window.innerHeight * 1 + 100}px',
           right: '5%',
           width: '30%',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
