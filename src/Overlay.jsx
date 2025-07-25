@@ -139,7 +139,7 @@ const contactVisible = scroll.range(4 / 5, 1 / 5);
       <div
         style={{
           position: 'absolute',
-          top: page2Top,
+          top: page2Top - '20%',
           left: '50%',
           transform: 'translateX(-50%)',
           color: 'white',
