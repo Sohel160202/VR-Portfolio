@@ -121,14 +121,26 @@ export default function Overlay() {
           <li><b>Key Project:</b> 2100: A Dystopian Utopia (Netflix, Sundance)</li>
         </ul>
 
-        <h2 style={{ fontSize: '1.2rem', marginTop: '2rem' }}>Trainer</h2>
+        <h2 style={{ fontSize: '1.2rem' }}>Senior Game Developer</h2>
         <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
-          Onunad-Learning Platform | Dhaka | 03/2020 – 06/2021
+          Appstick | Khulna | 01/12/2021 – 30/04/2022
         </p>
         <ul style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
-          <li>Developed Unreal Engine 4 curriculum</li>
-          <li>Mentored developers through hands-on projects</li>
+          <li>Led dev team and ensured smooth execution</li>
+          <li>Trained team on Unreal Engine</li>
+          <li>Managed client requirements & integration</li>
         </ul>
+
+           <h2 style={{ fontSize: '1.2rem', marginTop: '2rem' }}>Game Developer</h2>
+        <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
+          Opus Technology Ltd | Dhaka | 08/2021 – 10/2021
+        </p>
+        <ul style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
+          <li>Designed strategies & mechanics for games</li>
+          <li>Managed feature integration & documentation</li>
+        </ul>
+
+
       </div>
 
       {/* Page 2: EXPERIENCE RIGHT */}
@@ -147,24 +159,16 @@ export default function Overlay() {
           pointerEvents: 'none',
         }}
       >
-        <h2 style={{ fontSize: '1.2rem' }}>Senior Game Developer</h2>
+   
+                <h2 style={{ fontSize: '1.2rem', marginTop: '2rem' }}>Trainer</h2>
         <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
-          Appstick | Khulna | 01/12/2021 – 30/04/2022
+          Onunad-Learning Platform | Dhaka | 03/2020 – 06/2021
         </p>
         <ul style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
-          <li>Led dev team and ensured smooth execution</li>
-          <li>Trained team on Unreal Engine</li>
-          <li>Managed client requirements & integration</li>
+          <li>Developed Unreal Engine 4 curriculum</li>
+          <li>Mentored developers through hands-on projects</li>
         </ul>
-
-        <h2 style={{ fontSize: '1.2rem', marginTop: '2rem' }}>Game Developer</h2>
-        <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
-          Opus Technology Ltd | Dhaka | 08/2021 – 10/2021
-        </p>
-        <ul style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
-          <li>Designed strategies & mechanics for games</li>
-          <li>Managed feature integration & documentation</li>
-        </ul>
+     
 
         <h2 style={{ fontSize: '1.2rem', marginTop: '2rem' }}>Founder & Head of Prototypes</h2>
         <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
