@@ -222,9 +222,9 @@ export default function Overlay() {
           opacity: 0,
         }}
       >
-        <p><a href="https://sohelmoon.medium.com/unreal-engine-4-aimoffset-replication-in-fps-multiplayer-6fe8594b7311" target="_blank">Unreal Engine 4: AimOffSet Replication in FPS Multiplayer</a></p>
-        <p><a href="https://sohelmoon.medium.com/unreal-engine-4-criteria-of-using-linetracebychannel-projectile-movement-component-and-move-dbb5cecbc073" target="_blank">Unreal Engine 4: Criteria of Using LineTraceByChannel...</a></p>
-        <p><a href="https://sohelmoon.medium.com/cross-disciplinary-collaboration-a-game-developers-perspective-7a504fa00805" target="_blank">Cross-Disciplinary Collaboration: A Game Developer’s Perspective</a></p>
+        <p><a href="https://sohelmoon.medium.com/unreal-engine-4-aimoffset-replication-in-fps-multiplayer-6fe8594b7311" target="_blank"  style={{ color: 'white', textDecoration: 'none' }}>Unreal Engine 4: AimOffSet Replication in FPS Multiplayer</a></p>
+        <p><a href="https://sohelmoon.medium.com/unreal-engine-4-criteria-of-using-linetracebychannel-projectile-movement-component-and-move-dbb5cecbc073" target="_blank"  style={{ color: 'white', textDecoration: 'none' }}>Unreal Engine 4: Criteria of Using LineTraceByChannel...</a></p>
+        <p><a href="https://sohelmoon.medium.com/cross-disciplinary-collaboration-a-game-developers-perspective-7a504fa00805" target="_blank"  style={{ color: 'white', textDecoration: 'none' }}>Cross-Disciplinary Collaboration: A Game Developer’s Perspective</a></p>
       </div>
 
       <div
@@ -240,7 +240,7 @@ export default function Overlay() {
           opacity: 0,
         }}
       >
-        <h3><a href="https://link.springer.com/book/10.1007/979-8-8688-1399-3" target="_blank" style={{ color: '#e71334' }}>
+        <h3><a href="https://link.springer.com/book/10.1007/979-8-8688-1399-3" target="_blank"  style={{ color: 'white', textDecoration: 'none' }}>
           Game Development Concepts in C++
         </a></h3>
         <p><i>Elevate Your Skills with Unreal Engine</i></p>
