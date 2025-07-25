@@ -1,7 +1,7 @@
 // File: src/Overlay.jsx
 import { Html, useScroll } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 export default function Overlay() {
   const scroll = useScroll();
@@ -10,9 +10,15 @@ export default function Overlay() {
   const leftExpRef = useRef();
   const rightExpRef = useRef();
 
+  const [page2Top, setPage2Top] = useState('100vh');
+
+  useEffect(() => {
+    setPage2Top(`${window.innerHeight * 1 + 100}px`);
+  }, []);
+
   useFrame(() => {
-    const introVisible = scroll.range(0, 0); // page 0 to 1
-    const expVisible = scroll.range(1, 1);   // page 1 to 2
+    const introVisible = scroll.range(0, 1 / 5); // page 0 to 1
+    const expVisible = scroll.range(1 / 5, 1 / 5); // page 1 to 2
 
     if (leftRef.current) {
       leftRef.current.style.opacity = introVisible ? 1 : 0;
@@ -93,7 +99,7 @@ export default function Overlay() {
         ref={leftExpRef}
         style={{
           position: 'absolute',
-          top: '${window.innerHeight * 1 + 100}px',
+          top: page2Top,
           left: '5%',
           width: '30%',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
@@ -130,7 +136,7 @@ export default function Overlay() {
         ref={rightExpRef}
         style={{
           position: 'absolute',
-          top: '${window.innerHeight * 1 + 100}px',
+          top: page2Top,
           right: '5%',
           width: '30%',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
