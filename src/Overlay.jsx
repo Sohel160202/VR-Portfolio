@@ -12,49 +12,46 @@ export default function Overlay() {
   const pubLeftRef = useRef();
   const pubRightRef = useRef();
   const impressionsRef = useRef();
+  const contactRef = useRef();
 
   const [page2Top, setPage2Top] = useState('100vh');
   const [page3Top, setPage3Top] = useState('200vh');
   const [page4Top, setPage4Top] = useState('300vh');
+  const [page5Top, setPage5Top] = useState('400vh');
 
   useEffect(() => {
-    setPage2Top(`${window.innerHeight * 1 + 500}px`);
-    setPage3Top(`${window.innerHeight * 2 + 500}px`);
-    setPage4Top(`${window.innerHeight * 3 + 500}px`);
+    const h = window.innerHeight;
+    setPage2Top(`${h * 1 + 500}px`);
+    setPage3Top(`${h * 2 + 500}px`);
+    setPage4Top(`${h * 3 + 500}px`);
+    setPage5Top(`${h * 4 + 500}px`);
   }, []);
 
   useFrame(() => {
-    const introVisible = scroll.offset <= 1 / 5; // page 0 to 1
-    const expVisible = scroll.range(1 / 5, 1 / 5); // page 1 to 2
-    const pubVisible = scroll.range(2 / 5, 1 / 5); // page 2 to 3
-    const impressionsVisible = scroll.range(3 / 5, 1 / 5); // page 3 to 4
+    const introVisible = scroll.offset <= 1 / 5;
+    const expVisible = scroll.range(1 / 5, 1 / 5);
+    const pubVisible = scroll.range(2 / 5, 1 / 5);
+    const impressionsVisible = scroll.range(3 / 5, 1 / 5);
+    const contactVisible = scroll.range(4 / 5, 1 / 5);
 
     if (leftRef.current) {
       leftRef.current.style.opacity = introVisible ? 1 : 0;
-      leftRef.current.style.transform = introVisible
-        ? 'translateY(0px)'
-        : 'translateY(-50px)';
+      leftRef.current.style.transform = introVisible ? 'translateY(0px)' : 'translateY(-50px)';
     }
 
     if (rightRef.current) {
       rightRef.current.style.opacity = introVisible ? 1 : 0;
-      rightRef.current.style.transform = introVisible
-        ? 'translateY(0px)'
-        : 'translateY(-50px)';
+      rightRef.current.style.transform = introVisible ? 'translateY(0px)' : 'translateY(-50px)';
     }
 
     if (leftExpRef.current) {
       leftExpRef.current.style.opacity = expVisible ? 1 : 0;
-      leftExpRef.current.style.transform = expVisible
-        ? 'translateY(0px)'
-        : 'translateY(50px)';
+      leftExpRef.current.style.transform = expVisible ? 'translateY(0px)' : 'translateY(50px)';
     }
 
     if (rightExpRef.current) {
       rightExpRef.current.style.opacity = expVisible ? 1 : 0;
-      rightExpRef.current.style.transform = expVisible
-        ? 'translateY(0px)'
-        : 'translateY(50px)';
+      rightExpRef.current.style.transform = expVisible ? 'translateY(0px)' : 'translateY(50px)';
     }
 
     if (pubLeftRef.current) {
@@ -70,30 +67,31 @@ export default function Overlay() {
       impressionsRef.current.style.opacity = impressionsVisible ? 1 : 0;
       impressionsRef.current.style.transform = impressionsVisible ? 'translateY(0px)' : 'translateY(50px)';
     }
+
+    if (contactRef.current) {
+      contactRef.current.style.opacity = contactVisible ? 1 : 0;
+      contactRef.current.style.transform = contactVisible ? 'translateY(0px)' : 'translateY(50px)';
+    }
   });
 
   return (
     <Html fullscreen>
-
-      {/* Page 1: TITLE CENTERED */}
-<div
-  style={{
-    position: 'absolute',
-    top: '10%',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    transition: 'opacity 0.8s ease, transform 0.8s ease',
-    color: 'white',
-    fontFamily: 'Orbitron, sans-serif',
-    fontSize: '3rem',
-    fontWeight: 'bold',
-    opacity: 1,
-    pointerEvents: 'none',
-    zIndex: 20,
-  }}
->
-  I AM SOHEL
-</div>
+      <div
+        style={{
+          position: 'absolute',
+          top: '5%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          color: 'white',
+          fontFamily: 'Orbitron, sans-serif',
+          fontSize: '3rem',
+          fontWeight: 'bold',
+          pointerEvents: 'none',
+          zIndex: 20,
+        }}
+      >
+        I AM SOHEL
+      </div>
       
       {/* Page 1: INTRO LEFT */}
       <div
