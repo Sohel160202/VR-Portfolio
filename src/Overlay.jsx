@@ -234,7 +234,7 @@ const contactVisible = scroll.range(4 / 5, 1 / 5);
           position: 'absolute',
           top: page3Top,
           right: '5%',
-          width: '40%',
+          width: '30%',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
           color: 'white',
           fontFamily: 'Orbitron, sans-serif',
