@@ -109,7 +109,6 @@ export default function Overlay() {
           opacity: 0,
         }}
       >
-        <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>I AM SOHEL</h1>
         <p style={{ lineHeight: '1.7', fontSize: '1rem', fontWeight: 300 }}>
           I’m Sheikh Sohel Moon, a Game and VR Developer specializing in immersive experiences that push the boundaries of storytelling and technology. With expertise in Unreal Engine, C++, Python, VR development and Machine Learning.
           <br /><br />
