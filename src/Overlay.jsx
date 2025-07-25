@@ -11,19 +11,23 @@ export default function Overlay() {
   const rightExpRef = useRef();
   const pubLeftRef = useRef();
   const pubRightRef = useRef();
+  const impressionsRef = useRef();
 
   const [page2Top, setPage2Top] = useState('100vh');
   const [page3Top, setPage3Top] = useState('200vh');
+  const [page4Top, setPage4Top] = useState('300vh');
 
   useEffect(() => {
     setPage2Top(`${window.innerHeight * 1 + 500}px`);
     setPage3Top(`${window.innerHeight * 2 + 500}px`);
+    setPage4Top(`${window.innerHeight * 3 + 500}px`);
   }, []);
 
   useFrame(() => {
     const introVisible = scroll.range(0, 1 / 5); // page 0 to 1
     const expVisible = scroll.range(1 / 5, 1 / 5); // page 1 to 2
     const pubVisible = scroll.range(2 / 5, 1 / 5); // page 2 to 3
+    const impressionsVisible = scroll.range(3 / 5, 1 / 5); // page 3 to 4
 
     if (leftRef.current) {
       leftRef.current.style.opacity = introVisible ? 1 : 0;
@@ -60,6 +64,11 @@ export default function Overlay() {
     if (pubRightRef.current) {
       pubRightRef.current.style.opacity = pubVisible ? 1 : 0;
       pubRightRef.current.style.transform = pubVisible ? 'translateY(0px)' : 'translateY(50px)';
+    }
+
+    if (impressionsRef.current) {
+      impressionsRef.current.style.opacity = impressionsVisible ? 1 : 0;
+      impressionsRef.current.style.transform = impressionsVisible ? 'translateY(0px)' : 'translateY(50px)';
     }
   });
 
@@ -223,6 +232,40 @@ export default function Overlay() {
           It covers collision detection, AI behaviors, advanced physics, networking, and performance optimization, aimed at intermediate developers.
           Author Sheikh Sohel Moon shares insights from notable projects to help readers master advanced game development techniques.
         </p>
+      </div>
+ <div
+        ref={impressionsRef}
+        style={{
+          position: 'absolute',
+          top: page4Top,
+          left: '5%',
+          width: '90%',
+          transition: 'opacity 0.8s ease, transform 0.8s ease',
+          color: 'white',
+          fontFamily: 'Orbitron, sans-serif',
+          opacity: 0,
+          pointerEvents: 'none',
+          textAlign: 'center',
+        }}
+      >
+        <h1 style={{ fontSize: '3rem', marginBottom: '2rem', color: 'white' }}>
+          IMPRESSIONS<span style={{ color: '#E63946' }}>.</span>
+        </h1>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '20px',
+            justifyItems: 'center',
+          }}
+        >
+          <img src="/images/impression1.jpg" style={{ width: '100%', maxWidth: '300px', borderRadius: '10px' }} />
+          <img src="/images/impression2.jpg" style={{ width: '100%', maxWidth: '300px', borderRadius: '10px' }} />
+          <img src="/images/impression3.jpg" style={{ width: '100%', maxWidth: '300px', borderRadius: '10px' }} />
+          <img src="/images/impression4.jpg" style={{ width: '100%', maxWidth: '300px', borderRadius: '10px' }} />
+          <img src="/images/impression5.jpg" style={{ width: '100%', maxWidth: '300px', borderRadius: '10px' }} />
+          <img src="/images/impression6.jpg" style={{ width: '100%', maxWidth: '300px', borderRadius: '10px' }} />
+        </div>
       </div>
     </Html>
   );
