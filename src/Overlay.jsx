@@ -99,7 +99,7 @@ const contactVisible = scroll.range(4 / 5, 1 / 5);
         ref={leftRef}
         style={{
           position: 'absolute',
-          top: '50%',
+          top: '40%',
           left: '5%',
           width: '30%',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
@@ -120,7 +120,7 @@ const contactVisible = scroll.range(4 / 5, 1 / 5);
         ref={rightRef}
         style={{
           position: 'absolute',
-          top: '50%',
+          top: '40%',
           right: '5%',
           width: '30%',
           transition: 'opacity 0.8s ease, transform 0.8s ease',
