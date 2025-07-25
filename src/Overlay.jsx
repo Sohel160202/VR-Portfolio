@@ -110,39 +110,28 @@ export default function Overlay() {
           pointerEvents: 'none',
         }}
       >
-        <h2 style={{ fontSize: '1.2rem' }}>Lead Game & VR Developer</h2>
-        <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
-          Studioteka Design LLC | New York, United States | 01/04/2022 – Present
-        </p>
-        <ul style={{ fontSize: '0.9rem', lineHeight: '1.6', marginTop: '0.5rem' }}>
-          <li>Led immersive VR experiences on climate narratives</li>
-          <li>Directed future-themed VR prototype</li>
-          <li>Managed task flow across 3D, animation, and design</li>
-          <li><b>Key Project:</b> 2100: A Dystopian Utopia (Netflix, Sundance)</li>
-        </ul>
+     <h2 style={{ fontSize: '1.2rem' }}>Lead Game & VR Developer</h2>
+  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
+    Studioteka Design LLC | New York, United States | 01/04/2022 – Present
+  </p>
+  <ul style={{ fontSize: '0.9rem', lineHeight: '1.6', marginTop: '0.5rem' }}>
+    <li>Led immersive VR experiences on climate narratives</li>
+    <li>Directed future-themed VR prototype</li>
+    <li>Managed task flow across 3D, animation, and design</li>
+    <li><b>Key Project:</b> 2100: A Dystopian Utopia (Netflix, Sundance)</li>
+  </ul>
 
-        <h2 style={{ fontSize: '1.2rem' }}>Senior Game Developer</h2>
-        <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
-          Appstick | Khulna | 01/12/2021 – 30/04/2022
-        </p>
-        <ul style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
-          <li>Led dev team and ensured smooth execution</li>
-          <li>Trained team on Unreal Engine</li>
-          <li>Managed client requirements & integration</li>
-        </ul>
-
-           <h2 style={{ fontSize: '1.2rem', marginTop: '2rem' }}>Game Developer</h2>
-        <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
-          Opus Technology Ltd | Dhaka | 08/2021 – 10/2021
-        </p>
-        <ul style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
-          <li>Designed strategies & mechanics for games</li>
-          <li>Managed feature integration & documentation</li>
-        </ul>
-
-
-      </div>
-
+  <h2 style={{ fontSize: '1.2rem', marginTop: '2rem' }}>Senior Game Developer</h2>
+  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
+    Appstick | Khulna | 01/12/2021 – 30/04/2022
+  </p>
+  <ul style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
+    <li>Led dev team and ensured smooth execution</li>
+    <li>Trained team on Unreal Engine</li>
+    <li>Managed client requirements & integration</li>
+  </ul>
+</div>
+      
       {/* Page 2: EXPERIENCE RIGHT */}
       <div
         ref={rightExpRef}
@@ -159,26 +148,24 @@ export default function Overlay() {
           pointerEvents: 'none',
         }}
       >
-   
-                <h2 style={{ fontSize: '1.2rem', marginTop: '2rem' }}>Trainer</h2>
-        <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
-          Onunad-Learning Platform | Dhaka | 03/2020 – 06/2021
-        </p>
-        <ul style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
-          <li>Developed Unreal Engine 4 curriculum</li>
-          <li>Mentored developers through hands-on projects</li>
-        </ul>
-     
+    <h2 style={{ fontSize: '1.2rem' }}>Game Developer</h2>
+  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
+    Opus Technology Ltd | Dhaka | 08/2021 – 10/2021
+  </p>
+  <ul style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
+    <li>Designed strategies & mechanics for games</li>
+    <li>Managed feature integration & documentation</li>
+  </ul>
 
-        <h2 style={{ fontSize: '1.2rem', marginTop: '2rem' }}>Founder & Head of Prototypes</h2>
-        <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
-          Studio ThunderBolt | Dhaka | 02/2018 – 02/2020
-        </p>
-        <ul style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
-          <li>Built game prototypes and asset services</li>
-          <li>Led game design and dev pipeline</li>
-        </ul>
-      </div>
+  <h2 style={{ fontSize: '1.2rem', marginTop: '2rem' }}>Founder & Head of Prototypes</h2>
+  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
+    Studio ThunderBolt | Dhaka | 02/2018 – 02/2020
+  </p>
+  <ul style={{ fontSize: '0.9rem', lineHeight: '1.6' }}>
+    <li>Built game prototypes and asset services</li>
+    <li>Led game design and dev pipeline</li>
+  </ul>
+</div>
     </Html>
   );
 }
