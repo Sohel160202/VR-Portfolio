@@ -74,6 +74,27 @@ export default function Overlay() {
 
   return (
     <Html fullscreen>
+
+      {/* Page 1: TITLE CENTERED */}
+<div
+  style={{
+    position: 'absolute',
+    top: '10%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    transition: 'opacity 0.8s ease, transform 0.8s ease',
+    color: 'white',
+    fontFamily: 'Orbitron, sans-serif',
+    fontSize: '3rem',
+    fontWeight: 'bold',
+    opacity: 1,
+    pointerEvents: 'none',
+    zIndex: 20,
+  }}
+>
+  I AM SOHEL
+</div>
+      
       {/* Page 1: INTRO LEFT */}
       <div
         ref={leftRef}
