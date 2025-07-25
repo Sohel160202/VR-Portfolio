@@ -300,6 +300,4 @@ export default function Overlay() {
     </Html>
   );
 }
-    </Html>
-  );
-}
+
