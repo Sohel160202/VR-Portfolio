@@ -11,7 +11,7 @@ export default function Overlay() {
   const rightExpRef = useRef();
 
   useFrame(() => {
-    const introVisible = scroll.range(0, 1); // page 0 to 1
+    const introVisible = scroll.range(0, 0); // page 0 to 1
     const expVisible = scroll.range(1, 1);   // page 1 to 2
 
     if (leftRef.current) {
