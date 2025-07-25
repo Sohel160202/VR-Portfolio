@@ -22,9 +22,9 @@ export default function Overlay() {
   useEffect(() => {
     const h = window.innerHeight;
     setPage2Top(`${h * 1 + 500}px`);
-    setPage3Top(`${h * 2 + 500}px`);
+    setPage3Top(`${h * 2 + 800}px`);
     setPage4Top(`${h * 3 + 500}px`);
-    setPage5Top(`${h * 4 + 500}px`);
+    setPage5Top(`${h * 4 + 800}px`);
   }, []);
 
   useFrame(() => {
@@ -311,9 +311,6 @@ const contactVisible = scroll.range(4 / 5, 1 / 5);
           <p style={{ marginTop: '1rem' }}>
             <a href="/Resume_SheikhSohelMoon.pdf" download style={{ color: 'white', textDecoration: 'underline' }}>Download My Resume</a>
           </p>
-        </div>
-        <div>
-          <img src="/images/resume-icon.png" alt="Resume Icon" style={{ width: '100px' }} />
         </div>
       </div>
     </Html>
