@@ -13,7 +13,7 @@ export default function Overlay() {
   const [page2Top, setPage2Top] = useState('100vh');
 
   useEffect(() => {
-    setPage2Top(`${window.innerHeight * 1 + 100}px`);
+    setPage2Top(`${window.innerHeight * 1 + 200}px`);
   }, []);
 
   useFrame(() => {
