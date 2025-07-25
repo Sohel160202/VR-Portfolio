@@ -334,7 +334,7 @@ const contactVisible = scroll.range(4 / 5, 1 / 5);
     fontFamily: 'Orbitron, sans-serif',
     opacity: 0,
     transition: 'opacity 0.8s ease, transform 0.8s ease',
-    paddingRight: '5%', // spacing from the right edge
+    paddingRight: '20%', // spacing from the right edge
   }}
 >
   <div style={{ textAlign: 'right' }}>
