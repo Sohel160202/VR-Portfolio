@@ -267,6 +267,39 @@ export default function Overlay() {
           <img src="/images/impression6.jpg" style={{ width: '100%', maxWidth: '300px', borderRadius: '10px' }} />
         </div>
       </div>
+            <div
+        ref={contactRef}
+        style={{
+          position: 'absolute',
+          top: page5Top,
+          left: '10%',
+          right: '10%',
+          width: '80%',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          color: 'white',
+          fontFamily: 'Orbitron, sans-serif',
+          opacity: 0,
+          transition: 'opacity 0.8s ease, transform 0.8s ease',
+        }}
+      >
+        <div>
+          <h1>NEED MORE INFORMATION<span style={{ color: '#e71334' }}>?</span></h1>
+          <p style={{ marginTop: '1rem' }}>
+            <a href="mailto:shlsbbr@gmail.com" style={{ color: 'white', textDecoration: 'none' }}>shlsbbr@gmail.com</a>
+          </p>
+          <p style={{ marginTop: '1rem' }}>
+            <a href="/Resume_SheikhSohelMoon.pdf" download style={{ color: 'white', textDecoration: 'underline' }}>Download My Resume</a>
+          </p>
+        </div>
+        <div>
+          <img src="/images/resume-icon.png" alt="Resume Icon" style={{ width: '100px' }} />
+        </div>
+      </div>
+    </Html>
+  );
+}
     </Html>
   );
 }
